@@ -48,6 +48,11 @@ class Post
      */
     private $postCategory;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +126,18 @@ class Post
     public function setPostCategory(?PostCategory $postCategory): self
     {
         $this->postCategory = $postCategory;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
