@@ -35,3 +35,27 @@ symfony console make:entity
 * Donner le nom de la propriété à ajouter à l'entité reliée
 * Dire si le champ peut être null
 * Appuyer sur Enter pour terminer
+
+## Créer une entity User/log
+
+```
+symfony console make:user
+```
+
+pour modifier ce user on fait un :
+
+```
+symfony console make:entity
+```
+
+Gerer le systeme de login/logout
+
+```
+symfony console make:auth
+```
+
+Gerer le formulaire d'autentification
+
+```
+symfony console make:registration-form
+```
