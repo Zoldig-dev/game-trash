@@ -1,17 +1,31 @@
-{% extends 'base.html.twig' %}
+{% extends '/layout/user.html.twig' %}
 
 {% block title %}Register{% endblock %}
+{% block bodyClass %}base{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <div class="container">
+        <div class="content-crea">
+            <h2 class="welcom animate__animated animate__zoomInDown">Register</h2>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+            {{ form_start(registrationForm, {'attr': {'class': 'crealog'}}) }}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+            {{ form_row(registrationForm.email, {'attr': {'placeholder': 'Email'}}) }}
+
+            {{ form_row(registrationForm.plainPassword,
+                {'attr': {'placeholder': 'Password'}},
+                { label: 'Password'})
+            }}
+
+            {{ form_row(registrationForm.agreeTerms) }}
+            <div class="crealog-footer">
+                <button type="submit" class="btn btn-lg btn-light crealog-footer-btn"><span>Register</span></button>
+            </div>
+            {{ form_end(registrationForm) }}
+
+            <a class="register-back" href="{{ path('app_login') }}">Retour</a>
+        </div>
+    </div>
+
 {% endblock %}
+{% block footer %}{% endblock %}

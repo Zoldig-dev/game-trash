@@ -1,8 +1,16 @@
-body{
+html {
+  min-height: 100%;
+}
+body {
+  height: 100%;
+}
+.base{
+  background: #757F9A;
+  background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);
+  background: linear-gradient(to right, #D7DDE8, #757F9A);
+}
+.main{
   background: #000000;
-  background: -webkit-linear-gradient(to left, #434343, #000000);
-  background: linear-gradient(to left, #434343, #000000);
-  //background-size: cover;
-  //background-repeat: no-repeat;
-  color: white;
+  background: -webkit-linear-gradient(to right, #434343, #000000);
+  background: linear-gradient(to right, #434343, #000000);
 }

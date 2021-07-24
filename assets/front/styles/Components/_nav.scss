@@ -1,0 +1,18 @@
+.navbar {
+  background-image: url("https://static.hitek.fr/img/actualite/2017/11/09/fb_f8968f62558ec28e77ebc8b7f8131419.jpg");
+  background-blend-mode: exclusion;
+  color: white!important;
+  min-height: 5rem;
+  .nav-link {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    margin: 0.2rem .5rem;
+    border-radius: 4px;
+    transition: all .2s ease-in-out;
+    &:hover {
+      transform: scale(.98);
+    }
+  }
+}
+.navbar-nav {
+  z-index: 999 !important;
+}

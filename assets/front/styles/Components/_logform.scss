@@ -1,0 +1,52 @@
+.content-log {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  h1 {
+    color: white;
+    padding-bottom: 1rem;
+  }
+  .logform {
+    width: 80%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 1rem;
+
+    h2 {
+      padding-bottom: 1rem;
+      color: white;
+      font-size: 2rem;
+    }
+
+    p {
+      color: white;
+      text-align: center;
+    }
+
+    &-submit {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: .2s ease-in-out;
+
+      &:hover {
+        transform: scale(.98) translateZ(0) perspective(1px);
+      }
+    }
+  }
+
+}
+

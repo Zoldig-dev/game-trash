@@ -18,5 +18,10 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "animate.css": "^4.1.1",
+        "aos": "^2.3.4",
+        "transition-style": "^0.1.1"
     }
 }
