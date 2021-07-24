@@ -1,0 +1,15 @@
+{% extends 'layout/admin.html.twig' %}
+
+{% block title %}Hello Admin{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="content-crea">
+            <h2 class="animate__animated animate__zoomInDown">Create a Post</h2>
+            {{ form_start(form) }}
+            {{ form_row(form.title) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}{% endblock %}

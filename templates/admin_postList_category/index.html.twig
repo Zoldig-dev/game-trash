@@ -1,0 +1,17 @@
+{% extends 'layout/admin.html.twig' %}
+
+{% block title %}Hello Admin{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="content-catList">
+            <h2 class="animate__animated animate__zoomInDown">category Post List</h2>
+            <ul>
+                {% for cat in catList %}
+                    <li>{{ cat.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}{% endblock %}

@@ -1,0 +1,19 @@
+{% block header %}
+    <div class="bg-admin">
+        <div class="container">
+            <ul class="nav nav-tabs nav-admin">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('admin_post_list') }}">Category Post List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('admin_post_create') }}">Create Post</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+{% endblock %}
