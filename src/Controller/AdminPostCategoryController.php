@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Post;
+use App\Entity\PostCategory;
+use App\Form\CreaCatPostFormType;
 use App\Form\CreaPostFormType;
 use App\Repository\PostCategoryRepository;
 use App\Repository\PostRepository;
@@ -41,7 +43,7 @@ class AdminPostCategoryController extends AbstractController
     }
 
     /**
-     * @Route("/admin/post-list", name="admin_post_list")
+     * @Route("/admin/catpost-list", name="admin_catpost_list")
      */
     public function index(): Response {
         $catList = $this->catPostRepo->findAll();
@@ -50,6 +52,56 @@ class AdminPostCategoryController extends AbstractController
             "catList" => $catList,
         ]);
     }
+
+    /**
+     * @Route("/admin/create-catpost-list", name="admin_create_catpost_list")
+     */
+    public function createCatPost(Request $request): Response {
+        $postCat= new PostCategory();
+        $form = $this->createForm(CreaCatPostFormType::class, $postCat);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->em->persist($postCat);
+            $this->em->flush();
+            return $this->redirectToRoute('admin_catpost_list');
+        }
+
+        return $this->render('admin_create_catpost/index.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/update-catpost-list/{id}", name="admin_update_catpost_list")
+     */
+    public function updateCatPost(Request $request, int $id) {
+        $cat = $this->catPostRepo->find($id);
+        $form = $this->createForm(CreaCatPostFormType::class, $cat);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->em->persist($cat);
+            $this->em->flush();
+            return $this->redirectToRoute('admin_catpost_list');
+        }
+
+        return $this->render('admin_create_catpost/index.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/admin/delete-catpost-list/{id}", name="admin_delete_catpost_list")
+     */
+    public function deleteCatPost(int $id) {
+        $cat = $this->catPostRepo->find($id);
+        $this->em->remove($cat);
+        $this->em->flush();
+
+        return $this->redirectToRoute("admin_catpost_list");
+    }
+
 
     /**
      * @Route("/admin/create-post", name="admin_post_create")
@@ -66,7 +118,7 @@ class AdminPostCategoryController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        return $this->render('admin_post_category/index.html.twig', [
+        return $this->render('admin_create_post/index.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -86,8 +138,10 @@ class AdminPostCategoryController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        return $this->render('admin_post_category/index.html.twig', [
+        return $this->render('admin_create_post/index.html.twig', [
             'form' => $form->createView(),
         ]);
     }
+
+
 }

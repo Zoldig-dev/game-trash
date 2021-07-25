@@ -1,19 +1,47 @@
 {% block header %}
-    <div class="bg-admin">
-        <div class="container">
-            <ul class="nav nav-tabs nav-admin">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('home') }}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('admin_post_list') }}">Category Post List</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('admin_post_create') }}">Create Post</a>
-                </li>
-            </ul>
-
+    <nav class="navbar navbar-expand-lg navbar-light bg-admin mb-5">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-admin">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ path('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Post Gestion
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ path('admin_post_create') }}">Create Post</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{{ path('admin_catpost_list') }}">Category Post List</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Post List</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Game Gestion
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Create Game</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Game List</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </nav>
 
 {% endblock %}
