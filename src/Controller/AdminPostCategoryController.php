@@ -102,46 +102,4 @@ class AdminPostCategoryController extends AbstractController
         return $this->redirectToRoute("admin_catpost_list");
     }
 
-
-    /**
-     * @Route("/admin/create-post", name="admin_post_create")
-     */
-    public function createPost(Request $request): Response
-    {
-        $post= new Post();
-        $form = $this->createForm(CreaPostFormType::class, $post);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->em->persist($post);
-            $this->em->flush();
-            return $this->redirectToRoute('home');
-        }
-
-        return $this->render('admin_create_post/index.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/admin/update-post/{id}", name="admin_post_update")
-     */
-    public function updatePost(Request $request, $id): Response
-    {
-        $post = $this->postRepo->find($id);
-        $form = $this->createForm(CreaPostFormType::class, $post);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->em->persist($post);
-            $this->em->flush();
-            return $this->redirectToRoute('home');
-        }
-
-        return $this->render('admin_create_post/index.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
-
-
 }

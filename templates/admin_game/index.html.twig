@@ -1,0 +1,45 @@
+{% extends 'layout/admin.html.twig' %}
+
+{% block title %}Game index{% endblock %}
+
+{% block body %}
+    <h1>Game index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>LaunchAt</th>
+                <th>Price</th>
+                <th>NotGlobal</th>
+                <th>PathImg</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for game in games %}
+            <tr>
+                <td>{{ game.id }}</td>
+                <td>{{ game.title }}</td>
+                <td>{{ game.description }}</td>
+                <td>{{ game.launchAt ? game.launchAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ game.price }}</td>
+                <td>{{ game.notGlobal }}</td>
+                <td>{{ game.pathImg }}</td>
+                <td>
+                    <a href="{{ path('admin_game_show', {'id': game.id}) }}">show</a>
+                    <a href="{{ path('admin_game_edit', {'id': game.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_game_new') }}">Create new</a>
+{% endblock %}

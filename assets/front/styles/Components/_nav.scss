@@ -3,6 +3,8 @@
   background-blend-mode: exclusion;
   color: white!important;
   min-height: 5rem;
+  width: 100%;
+  z-index: 1;
   .nav-link {
     background-color: rgba(0, 0, 0, 0.4) !important;
     margin: 0.2rem .5rem;

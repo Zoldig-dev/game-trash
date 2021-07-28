@@ -53,6 +53,11 @@ class Post
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $pathImg;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -138,6 +143,18 @@ class Post
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getPathImg(): ?string
+    {
+        return $this->pathImg;
+    }
+
+    public function setPathImg(?string $pathImg): self
+    {
+        $this->pathImg = $pathImg;
 
         return $this;
     }

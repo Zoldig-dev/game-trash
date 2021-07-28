@@ -8,18 +8,13 @@
         <div class="detail">
             <div class="detail-title">
                 <h2>{{ game.title }}</h2><span>Date de sortie : {{ game.launchAt | date("d/m/Y") }}</span>
-{#                <p>{{ cat.name }}</p>#}
             </div>
-            <div class="detail-device">
+            <div class="detail-device mb-2">
                 {% for device in game.devices %}
-                <p>{{ device.name }}</p>
-                <img src="{{ device.pathLogo }}" alt="">
+                <img class="detail-device-img" src="{{ device.pathLogo }}" alt="">
                 {% endfor %}
             </div>
             <div class="detail-cat">
-{#                {% for category in game.categories %}#}
-{#                    <p>{{ category.name }}</p>#}
-{#                {% endfor %}#}
             </div>
             <div class="detail-img" transition-style="in:circle:bottom-left">
                 <img src="{{ game.pathImg }}" alt="">
@@ -29,7 +24,7 @@
                 <p>{{ game.description }}</p>
             </div>
             <div class="detail-btn">
-                <a href="{{ path('home') }}">Retour</a>
+                <a class="btn btn-light" href="{{ path('home') }}">Retour</a>
             </div>
         </div>
     </div>

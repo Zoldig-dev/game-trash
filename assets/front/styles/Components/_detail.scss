@@ -1,4 +1,5 @@
 .details {
+  margin-top: 8rem;
   .detail {
     width: 100%;
     color: white;
@@ -7,6 +8,21 @@
       justify-content: space-between;
       align-items: center;
     }
+
+    &-device {
+      min-width: 5rem;
+      max-height: 5rem;
+      background-color: rgba(255, 255, 255, 0.37);
+      padding: .4rem;
+      border-radius: .4rem;
+      display: flex;
+      justify-content: center;
+      &-img {
+        width: 5rem;
+        height: auto;
+      }
+    }
+
     &-img {
       width: 100%;
       display: grid;
@@ -16,5 +32,6 @@
         height: auto;
       }
     }
+
   }
 }

@@ -35,10 +35,10 @@ class Forum
     private $topics;
 
     /**
-     * @ORM\OneToOne(targetEntity=Game::class, inversedBy="forum", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToOne(targetEntity=Game::class, inversedBy="forum", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $game;
+    private $game = null;
 
     public function __construct()
     {
