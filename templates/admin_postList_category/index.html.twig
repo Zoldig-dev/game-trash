@@ -4,9 +4,13 @@
 
 {% block body %}
     <div class="container">
-        <div class="content-catList">
-            <h2 class="animate__animated animate__zoomInDown mb-5">Category Post List</h2>
+        <div class="content-catList mt-5">
+            <h2 class="animate__animated animate__zoomInDown mt-5 mb-2">Category Post List</h2>
             <div class="catlPost">
+
+                <div class="catlPost-footer mt-2 mb-4">
+                    <a class="catlPost-footer-btn" href="{{ path('admin_create_catpost_list') }}">Add Post Category</a>
+                </div>
 
                 {% for cat in catList %}
                     <div class="catPost">
@@ -22,10 +26,6 @@
                     </div>
 
                 {% endfor %}
-
-                <div class="catlPost-footer mt-5">
-                    <a class="catlPost-footer-btn" href="{{ path('admin_create_catpost_list') }}">Add Post Category</a>
-                </div>
 
             </div>
 

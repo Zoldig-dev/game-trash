@@ -12,11 +12,11 @@
         {{ encore_entry_link_tags('front-style') }}
 
     {% endblock %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous" defer></script>
-    {% block javascripts %}
 
+    {% block javascripts %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+                crossorigin="anonymous" defer></script>
     {% endblock %}
 </head>
 <body class="{% block bodyClass %}base{% endblock %}">
@@ -24,6 +24,5 @@
 {% block body %}{% endblock %}
 {{ encore_entry_script_tags('front-scripts') }}
 {% block footer %}{% include './footer/footer.html.twig' %}{% endblock %}
-
 </body>
 </html>

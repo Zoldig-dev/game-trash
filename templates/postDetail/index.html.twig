@@ -1,0 +1,24 @@
+{% extends '/layout/user.html.twig' %}
+
+{% block title %}Game Trash{% endblock %}
+{% block bodyClass %}main{% endblock %}
+
+{% block body %}
+    <div class="container details">
+        <div class="detail">
+            <div class="detail-title">
+                <h2>{{ post.title }}</h2>
+                <span>Date de sortie : {{ post.createdAt | date("d/m/Y") }}</span>
+                <span>{{ post.numberView }}</span>
+            </div>
+            <div class="detail-cat">
+            </div>
+            <div class="detail-info">
+                <p>{{ post.content }}</p>
+            </div>
+            <div class="detail-btn">
+                <a href="{{ path('home') }}">Retour</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

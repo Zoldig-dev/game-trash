@@ -1,0 +1,16 @@
+<div class="form-contact">
+    {{ form_start(form) }}
+    <div class="form-floating mb-3">
+        {{ form_widget(form.title) }}
+        {{ form_label(form.title) }}
+    </div>
+    <div class="form-floating mb-3">
+        {{ form_widget(form.game) }}
+        {{ form_label(form.game) }}
+    </div>
+    <div class="form-btn">
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    </div>
+    {{ form_end(form) }}
+</div>
+

@@ -1,0 +1,30 @@
+{% extends 'layout/admin.html.twig' %}
+
+{% block title %}Hello AdminContactController!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="content-admin-contact mt-5">
+            <h2 class="animate__animated animate__zoomInDown mt-5 mb-2">Contact List</h2>
+            <div class="admin-contacts">
+
+                {% for contact in contacts %}
+                    <div class="admin-contact">
+                        <a class="admin-contact-item" href="#">
+                           <span>Subject : {{ contact.title }}</span> <span>Created at : {{ contact. createdAt | date("d/m/Y à h:i:s")}}</span><span>By : {{ contact.user.firstName }}</span>
+                        </a>
+                        <a class="admin-contact-item upd" href="#">
+                            Close Ticket
+                        </a>
+                        <a class="admin-contact-item del" href="#">
+                            Delete
+                        </a>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block footer %}{% endblock %}

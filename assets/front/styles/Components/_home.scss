@@ -3,10 +3,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 6rem;
   h2 {
     color: white;
     font-size: 3rem;
-
   }
 
   .content-noConnect {
@@ -18,80 +18,9 @@
     .welcom {
       font-size: 3.5rem;
       color: white;
-
     }
   }
-  .content-games {
-    .games {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
 
-      .game {
-        background: rgba(255, 255, 255, 0.25);
-        box-shadow: 0 8px 32px 0 rgba(131, 136, 196, 0.37);
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-        border-radius: 4px;
-        width: 35rem;
-        height: fit-content;
-        transition: 0.2s ease-in-out;
-        -webkit-font-smoothing: subpixel-antialiased;
-
-        &:hover {
-          transform: scale(1.01);
-        }
-
-        &-btn {
-          width: 100%;
-          height: 3rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          a {
-            text-decoration: none;
-            color: black;
-            background-color: #2da82e;
-            padding: .4rem 1rem;
-            border-radius: 25px;
-            transition: all .2s ease-in-out;
-            font-weight: 500;
-            -webkit-font-smoothing: subpixel-antialiased;
-
-            &:hover {
-              transform: scale(.98) translateZ(0) perspective(1px);
-            }
-          }
-        }
-
-        &-img {
-          width: 100%;
-          height: 15rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-          overflow: hidden;
-
-          img {
-            width: 100%;
-            height: auto;
-          }
-
-          &_price {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background-color: rgba(91, 222, 71, 0.51);
-            padding: .2rem .6rem;
-          }
-        }
-      }
-    }
-  }
 }
 
 

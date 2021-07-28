@@ -20,6 +20,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "@types/swiper": "^5.4.3",
         "animate.css": "^4.1.1",
         "aos": "^2.3.4",
         "transition-style": "^0.1.1"

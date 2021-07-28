@@ -11,7 +11,10 @@
             </div>
         {% endif %}
         {% if app.user %}
-            <section class="content-games mb-5">
+            <section class="content-swiper mb-5">
+                {% include './swiper/swiper.html.twig' %}
+            </section>
+            <section class="content-games mb-5" id="games">
                 <h2 class="text-center animate__animated animate__zoomInDown mb-5">Games</h2>
                 <div class="games">
                     {% for game in games %}
@@ -29,14 +32,46 @@
                 </div>
             </section>
             <section class="content-posts mb-5">
-                <h2 class="text-center animate__animated animate__zoomInDown mb-5">Post</h2>
-                {% for post in posts %}
-                    <h2>{{ post.title }}</h2><span>{{ post.createdAt | date("m/d/Y") }}</span>
-                    <p>{{ post.content }}</p>
-                {% endfor %}
+                <h2 class="text-center animate__animated animate__zoomInDown mb-5" id="posts">Post</h2>
+                <div class="posts">
 
+                    {% for post in posts %}
+                        <div class="post">
+                            <div class="post-head">
+                                <div class="post-head-title">
+                                    <h2>{{ post.title }}</h2>
+                                    <span>{{ post.createdAt | date("m/d/Y") }}</span>
+                                    <span>View : {{ post.numberView }}</span>
+                                </div>
+                                {% if is_granted("ROLE_ADMIN") %}
+                                    <div class="post-head-admin">
+                                        <a class="btn btn-outline-success" href="{{ path('admin_post_update', {'id': post.id}) }}">
+                                            Update
+                                        </a>
+                                        <a class="btn btn-outline-danger" href="{{ path('admin_delete_post_list', {'id': post.id}) }}">
+                                            Delete
+                                        </a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="post-content">
+                                <div class="post-content_img">
+                                    <img src="{{ post.pathImg }}" alt="">
+                                </div>
+                                <p>{{ post.content }}</p>
+                            </div>
+                            <div class="post-btn">
+                                <a class="btn btn-light" href="{{ path('post_detail', {'id': post.id}) }}">Voir plus</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
             </section>
+            <hr>
+            {% include './contact/index.html.twig' %}
         {% endif %}
     </div>
+
 {% endblock %}
 

@@ -1,0 +1,11 @@
+{% extends 'layout/admin.html.twig' %}
+
+{% block title %}New Forum{% endblock %}
+
+{% block body %}
+    <h1>Create new Forum</h1>
+
+    {{ include('admin_forum/_form.html.twig') }}
+
+    <a href="{{ path('admin_forum_index') }}">back to list</a>
+{% endblock %}
