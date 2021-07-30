@@ -11,7 +11,7 @@
                 {% for row in forum %}
                     <div class="forum-row">
                         <h3>{{ row.title }}</h3>
-                        <a class="btn btn-outline-light" href="">Go</a>
+                        <a class="btn btn-outline-light" href="{{ path('topic', {'id': row.id}) }}">Go</a>
                     </div>
                 {% endfor %}
             </div>

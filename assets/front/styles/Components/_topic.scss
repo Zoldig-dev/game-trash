@@ -1,0 +1,35 @@
+.content-topic {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    font-size: 3rem;
+    color: white;
+  }
+
+  .topics {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .topic {
+      width: 80%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 10px;
+
+      &-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+}

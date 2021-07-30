@@ -69,11 +69,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $contacts;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Topic::class, mappedBy="user")
+     */
+    private $topics;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
         $this->messages = new ArrayCollection();
         $this->contacts = new ArrayCollection();
+        $this->topics = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -285,6 +291,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($contact->getUser() === $this) {
                 $contact->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Topic[]
+     */
+    public function getTopics(): Collection
+    {
+        return $this->topics;
+    }
+
+    public function addTopic(Topic $topic): self
+    {
+        if (!$this->topics->contains($topic)) {
+            $this->topics[] = $topic;
+            $topic->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTopic(Topic $topic): self
+    {
+        if ($this->topics->removeElement($topic)) {
+            // set the owning side to null (unless already changed)
+            if ($topic->getUser() === $this) {
+                $topic->setUser(null);
             }
         }
 
