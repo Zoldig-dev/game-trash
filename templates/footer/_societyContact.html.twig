@@ -1,0 +1,12 @@
+<div class="contact">
+    <div class="contact-title d-flex justify-content-center align-items-center">
+        <img class="rounded-circle" src="{{ contact.logo }}" alt="" width="100" height="100">
+        <h1>{{ contact.name }}</h1>
+    </div>
+    <div class="contact-address d-flex flex-column justify-content-center align-items-center">
+        <p>{{ contact.ligne1 }}</p>
+        <span >{{ contact.cp ~ ' - ' ~ contact.ville ~ ' - ' ~ contact.pays}}</span>
+        <p>{{ contact.email }}</p>
+        <p>{{ contact.numTel }}</p>
+    </div>
+</div>

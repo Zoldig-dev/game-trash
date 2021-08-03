@@ -1,0 +1,52 @@
+{% extends 'layout/admin.html.twig' %}
+
+{% block title %}Society index{% endblock %}
+
+{% block body %}
+    <h1>Society index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>NumTel</th>
+                <th>Ligne1</th>
+                <th>Ligne2</th>
+                <th>Ligne3</th>
+                <th>Cp</th>
+                <th>Ville</th>
+                <th>Pays</th>
+                <th>Email</th>
+                <th>Logo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for society in societies %}
+            <tr>
+                <td>{{ society.id }}</td>
+                <td>{{ society.name }}</td>
+                <td>{{ society.numTel }}</td>
+                <td>{{ society.ligne1 }}</td>
+                <td>{{ society.ligne2 }}</td>
+                <td>{{ society.ligne3 }}</td>
+                <td>{{ society.cp }}</td>
+                <td>{{ society.ville }}</td>
+                <td>{{ society.pays }}</td>
+                <td>{{ society.email }}</td>
+                <td>{{ society.logo }}</td>
+                <td>
+                    <a href="{{ path('society_edit', {'id': society.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('society_new') }}">Create new</a>
+{% endblock %}

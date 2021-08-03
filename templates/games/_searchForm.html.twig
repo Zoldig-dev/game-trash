@@ -1,0 +1,22 @@
+{{ form_start(form, {'attr' : {'class' : 'row mb-3 g-0'}}) }}
+<div class="col-12 d-flex mb-3">
+    {{ form_widget(form.search) }}
+</div>
+<div class="row d-flex justify-content-center align-items-center g-0">
+    <div class="col-md-6 form-floating mb-3">
+        {{ form_widget(form.support) }}
+        {{ form_label(form.support) }}
+    </div>
+    <div class="col-md-6 form-floating mb-3">
+        {{ form_widget(form.cat) }}
+        {{ form_label(form.cat) }}
+    </div>
+</div>
+<div class="row g-0">
+    {{ form_widget(form.price) }}
+</div>
+<div class="row g-0">
+    <button class="rounded-pill d-flex justify-content-center alig-items-center py-2" type="submit"><span class="material-icons">search</span></button>
+</div>
+{{ form_end(form) }}
+

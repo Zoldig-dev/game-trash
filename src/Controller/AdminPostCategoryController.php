@@ -48,7 +48,7 @@ class AdminPostCategoryController extends AbstractController
     public function index(): Response {
         $catList = $this->catPostRepo->findAll();
 
-        return $this->render('admin_postList_category/index.html.twig', [
+        return $this->render('admin/admin_postList_category/index.html.twig', [
             "catList" => $catList,
         ]);
     }
@@ -67,7 +67,7 @@ class AdminPostCategoryController extends AbstractController
             return $this->redirectToRoute('admin_catpost_list');
         }
 
-        return $this->render('admin_create_catpost/index.html.twig', [
+        return $this->render('admin/admin_create_catpost/index.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -86,7 +86,7 @@ class AdminPostCategoryController extends AbstractController
             return $this->redirectToRoute('admin_catpost_list');
         }
 
-        return $this->render('admin_create_catpost/index.html.twig', [
+        return $this->render('admin/admin_create_catpost/index.html.twig', [
             'form' => $form->createView(),
         ]);
     }

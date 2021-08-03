@@ -4,6 +4,17 @@
   color: white!important;
   min-height: 5rem;
   width: 100%;
+  &-user {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 60%;
+    &_item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
   .nav-link {
     background-color: rgba(0, 0, 0, 0.4) !important;
     margin: 0.2rem .5rem;

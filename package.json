@@ -24,6 +24,7 @@
         "@types/swiper": "^5.4.3",
         "animate.css": "^4.1.1",
         "aos": "^2.3.4",
+        "material-design-icons": "^3.0.1",
         "transition-style": "^0.1.1"
     }
 }

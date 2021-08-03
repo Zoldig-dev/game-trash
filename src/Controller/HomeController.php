@@ -4,11 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactFormType;
-use App\Repository\DeviceRepository;
-use App\Repository\GameCategoryRepository;
 use App\Repository\GameRepository;
 use App\Repository\PostRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,10 +45,16 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(Request $request): Response
+    public function index(PaginatorInterface $paginator, Request $request): Response
     {
+        $qb = $this->gameRepo->getQbAll();
+
+        $pagination = $paginator->paginate(
+            $qb,
+            $request->query->getInt('page', 1),
+            6
+        );
 //        $hasAccess = $this->isGranted("ROLE_ADMIN");
-        $games = $this->gameRepo->findAll();
         $posts = $this->postRepo->findAll();
 
         $user = $this->getUser();
@@ -70,9 +75,9 @@ class HomeController extends AbstractController
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            "games" => $games,
             "posts" => $posts,
             'form' => $form->createView(),
+            'games' => $pagination,
         ]);
     }
 

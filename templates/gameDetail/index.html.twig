@@ -11,7 +11,7 @@
             </div>
             <div class="detail-device mb-2">
                 {% for device in game.devices %}
-                <img class="detail-device-img" src="{{ device.pathLogo }}" alt="">
+                    <img class="detail-device-img" src="{{ device.pathLogo }}" alt="">
                 {% endfor %}
             </div>
             <div class="detail-cat">
@@ -21,6 +21,9 @@
                 <p class="detail-img_price">{{ game.price }} €</p>
             </div>
             <div class="detail-info">
+                {% if game.notGlobal %}
+                    {{ show_rating(game) | raw }}
+                {% endif %}
                 <p>{{ game.description }}</p>
             </div>
             <div class="detail-btn">

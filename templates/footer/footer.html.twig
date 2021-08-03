@@ -1,5 +1,15 @@
 <footer class="mt-5">
     <div class="container">
         <p class="text-center mt-3">Copyright 2021</p>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                {{ show_nb_games() | raw }}
+                {{ show_nb_posts() | raw }}
+            </div>
+            <div class="col-md-6">
+                {{ show_society_contact() | raw }}
+            </div>
+        </div>
     </div>
 </footer>
