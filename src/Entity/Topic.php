@@ -45,6 +45,12 @@ class Topic
      */
     private $forum;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="topics")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function __construct()
     {
         $this->messages = new ArrayCollection();
@@ -129,6 +135,18 @@ class Topic
     public function setForum(?Forum $forum): self
     {
         $this->forum = $forum;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -1,0 +1,26 @@
+{% extends 'layout/user.html.twig' %}
+
+{% block title %}Games{% endblock %}
+{% block bodyClass %}main{% endblock %}
+
+{% block body %}
+    <section class="content-games mb-5" id="games">
+        <h2 class="text-center animate__animated animate__zoomInDown mb-5">Games</h2>
+        {% include './games/_searchForm.html.twig' %}
+        <div class="games">
+            {% for game in games %}
+                <div class="game">
+                    <div class="game-img" transition-style="in:circle:hesitate">
+                        <img src="{{ game.pathImg }}" alt="">
+                        <p class="game-img_price">{{ game.price }} €</p>
+                    </div>
+                    <div class="game-btn">
+                        <a href="{{ path('game_detail', {'id': game.id}) }}">Voir la fiche</a>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+        {{ knp_pagination_render(games) }}
+    </section>
+{% endblock %}

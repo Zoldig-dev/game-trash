@@ -3,6 +3,7 @@
         "@symfony/stimulus-bridge": "^2.0.0",
         "@symfony/webpack-encore": "^1.0.0",
         "core-js": "^3.0.0",
+        "file-loader": "^6.0.0",
         "regenerator-runtime": "^0.13.2",
         "sass": "^1.35.1",
         "sass-loader": "^12.0.0",
@@ -23,6 +24,7 @@
         "@types/swiper": "^5.4.3",
         "animate.css": "^4.1.1",
         "aos": "^2.3.4",
+        "material-design-icons": "^3.0.1",
         "transition-style": "^0.1.1"
     }
 }

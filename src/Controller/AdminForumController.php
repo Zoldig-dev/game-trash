@@ -20,7 +20,7 @@ class AdminForumController extends AbstractController
      */
     public function index(ForumRepository $forumRepository): Response
     {
-        return $this->render('admin_forum/index.html.twig', [
+        return $this->render('admin/admin_forum/index.html.twig', [
             'forums' => $forumRepository->findAll(),
         ]);
     }
@@ -43,7 +43,7 @@ class AdminForumController extends AbstractController
             return $this->redirectToRoute('admin_forum_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin_forum/new.html.twig', [
+        return $this->renderForm('admin/admin_forum/new.html.twig', [
             'forum' => $forum,
             'form' => $form,
         ]);
@@ -54,7 +54,7 @@ class AdminForumController extends AbstractController
      */
     public function show(Forum $forum): Response
     {
-        return $this->render('admin_forum/show.html.twig', [
+        return $this->render('admin/admin_forum/show.html.twig', [
             'forum' => $forum,
         ]);
     }
@@ -73,7 +73,7 @@ class AdminForumController extends AbstractController
             return $this->redirectToRoute('admin_forum_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin_forum/edit.html.twig', [
+        return $this->renderForm('admin/admin_forum/edit.html.twig', [
             'forum' => $forum,
             'form' => $form,
         ]);

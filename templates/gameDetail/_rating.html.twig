@@ -1,0 +1,10 @@
+<p>
+    {% for i in 0..9 %}
+        {% if i < note %}
+            <span class="material-icons">star</span>
+        {% else %}
+            <span class="material-icons">star_border</span>
+        {% endif %}
+
+    {% endfor %}
+</p>

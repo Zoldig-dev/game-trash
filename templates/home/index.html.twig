@@ -8,66 +8,15 @@
         {% if not app.user %}
             <div class="content-noConnect">
                 <h2 class="welcom animate__animated animate__jackInTheBox">Join Us If You Want Some Fun !!!</h2>
+                <img src="{{ asset('build/images/snake-spiral.svg') }}" alt="logo" width="100" height="100">
             </div>
         {% endif %}
         {% if app.user %}
             <section class="content-swiper mb-5">
                 {% include './swiper/swiper.html.twig' %}
             </section>
-            <section class="content-games mb-5" id="games">
-                <h2 class="text-center animate__animated animate__zoomInDown mb-5">Games</h2>
-                <div class="games">
-                    {% for game in games %}
-                        <div class="game">
-                            <div class="game-img" transition-style="in:circle:hesitate">
-                                <img src="{{ game.pathImg }}" alt="">
-                                <p class="game-img_price">{{ game.price }} €</p>
-                            </div>
-                            <div class="game-btn">
-                                <a href="{{ path('game_detail', {'id': game.id}) }}">Voir la fiche</a>
-                            </div>
-                        </div>
-
-                    {% endfor %}
-                </div>
-            </section>
-            <section class="content-posts mb-5">
-                <h2 class="text-center animate__animated animate__zoomInDown mb-5" id="posts">Post</h2>
-                <div class="posts">
-
-                    {% for post in posts %}
-                        <div class="post">
-                            <div class="post-head">
-                                <div class="post-head-title">
-                                    <h2>{{ post.title }}</h2>
-                                    <span>{{ post.createdAt | date("m/d/Y") }}</span>
-                                    <span>View : {{ post.numberView }}</span>
-                                </div>
-                                {% if is_granted("ROLE_ADMIN") %}
-                                    <div class="post-head-admin">
-                                        <a class="btn btn-outline-success" href="{{ path('admin_post_update', {'id': post.id}) }}">
-                                            Update
-                                        </a>
-                                        <a class="btn btn-outline-danger" href="{{ path('admin_delete_post_list', {'id': post.id}) }}">
-                                            Delete
-                                        </a>
-                                    </div>
-                                {% endif %}
-                            </div>
-                            <div class="post-content">
-                                <div class="post-content_img">
-                                    <img src="{{ post.pathImg }}" alt="">
-                                </div>
-                                <p>{{ post.content }}</p>
-                            </div>
-                            <div class="post-btn">
-                                <a class="btn btn-light" href="{{ path('post_detail', {'id': post.id}) }}">Voir plus</a>
-                            </div>
-                        </div>
-                    {% endfor %}
-
-                </div>
-            </section>
+            {% include './home/games.html.twig' %}
+            {% include './home/posts.html.twig' %}
             <hr>
             {% include './contact/index.html.twig' %}
         {% endif %}
