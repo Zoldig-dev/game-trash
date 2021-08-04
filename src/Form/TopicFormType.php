@@ -26,8 +26,7 @@ class TopicFormType extends AbstractType
                     'class' => 'form-control',
                     'placeholder' => 'logo',
                 ]
-            ])
-            ->add('submit', SubmitType::class);
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

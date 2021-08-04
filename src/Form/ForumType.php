@@ -27,7 +27,7 @@ class ForumType extends AbstractType
                 'label' => 'Jeux',
                 'required' => false,
                 'attr' => [
-                    'class' => 'form-control',
+                    'class' => 'form-select',
                 ]
 
             ])

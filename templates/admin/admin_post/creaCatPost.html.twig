@@ -1,0 +1,20 @@
+{% extends 'layout/admin.html.twig' %}
+
+{% block title %}Hello {{ app.user.firstName }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="content d-flex flex-column">
+            <h2 class="animate__animated animate__zoomInDown mb-3">Create a Post Category</h2>
+            {{ form_start(form, {'attr' : {'class' : 'form'}}) }}
+            <div class="form-floating mb-3">
+                {{ form_widget(form.name) }}
+                {{ form_label(form.name) }}
+            </div>
+            <button class="btn btn-outline-light">{{ button_label|default('Save') }}</button>
+            {{ form_end(form) }}
+        </div>
+        <a class="btn btn-light" href="{{ path('admin_catpost_list') }}">Back</a>
+    </div>
+{% endblock %}
+{% block footer %}{% endblock %}

@@ -1,11 +1,11 @@
 {% extends 'layout/user.html.twig' %}
 
-{% block title %}Edit Topic{% endblock %}
+{% block title %}New Topic{% endblock %}
 
 {% block body %}
     <div class="container">
 
-        {{ include('topic/_form.html.twig') }}
+        {{ include('forum/_topicForm.html.twig') }}
 
         <a class="btn btn-outline-light" href="{{ path('topic', {'id': forum.id}) }}">back to list</a>
     </div>

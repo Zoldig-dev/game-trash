@@ -69,7 +69,7 @@ class AdminPostController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        return $this->render('admin/admin_create_post/index.html.twig', [
+        return $this->render('admin/admin_post/creaPost.html.twig', [
             'form' => $form->createView(),
         ]);
     }
@@ -89,7 +89,7 @@ class AdminPostController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        return $this->render('admin/admin_create_post/index.html.twig', [
+        return $this->render('admin/admin_post/creaPost.html.twig', [
             'form' => $form->createView(),
         ]);
     }

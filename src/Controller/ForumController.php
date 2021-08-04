@@ -37,7 +37,7 @@ class ForumController extends AbstractController
     {
         $forum = $this->forumRepo->findAll();
 
-        return $this->render('forum/index.html.twig', [
+        return $this->render('forum/forum.html.twig', [
             'forum' => $forum,
         ]);
     }

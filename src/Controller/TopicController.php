@@ -48,7 +48,7 @@ class TopicController extends AbstractController
         $forum = $this->forumRepo->find($id);
         $topics = $forum->getTopics();
 
-        return $this->render('topic/index.html.twig', [
+        return $this->render('forum/topic.html.twig', [
             'topics' => $topics,
             'forum' => $forum,
         ]);
@@ -77,7 +77,7 @@ class TopicController extends AbstractController
             return $this->redirectToRoute('topic',  ['id' => $forum->getId()]);
         }
 
-        return $this->renderForm('topic/new.html.twig', [
+        return $this->renderForm('forum/new.html.twig', [
             'form' => $form,
             'forum' => $forum,
         ]);
