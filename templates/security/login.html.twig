@@ -4,8 +4,8 @@
 
 {% block body %}
     <div class="container">
-        <div class="content-log">
-            <h1 class="animate__animated animate__zoomInDown">Please sign in</h1>
+        <div class="content log">
+            <h2 class="animate__animated animate__zoomInDown mb-3">Please sign in</h2>
             <form method="post"
                   class="logform">
                 {% if error %}
@@ -23,7 +23,7 @@
                            value="{{ last_username }}"
                            name="email"
                            id="floatingInput"
-                           class="form-control"
+                           class="form-control rounded-pill"
                            autocomplete="email"
                            placeholder="Email"
                            required autofocus>
@@ -35,7 +35,7 @@
                     <input type="password"
                            name="password"
                            id="floatingInput"
-                           class="form-control"
+                           class="form-control rounded-pill"
                            placeholder="Password"
                            autocomplete="current-password"
                            required>
@@ -49,17 +49,6 @@
                        value="{{ csrf_token('authenticate') }}"
                 >
 
-
-                {#
-                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                See https://symfony.com/doc/current/security/remember_me.html
-
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" name="_remember_me"> Remember me
-                    </label>
-                </div>
-                #}
                 <div class="logform-submit mb-5">
                     <button class="btn btn-lg btn-light"
                             type="submit">

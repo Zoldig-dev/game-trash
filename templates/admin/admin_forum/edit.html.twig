@@ -1,13 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout/admin.html.twig' %}
 
 {% block title %}Edit Forum{% endblock %}
 
 {% block body %}
-    <h1>Edit Forum</h1>
+    <div class="container">
+        <div class="content d-flex flex-column my-5">
+            <h2 class="welcom animate__animated animate__jackInTheBox">Edit Forum</h2>
 
-    {{ include('admin/admin_forum/_form.html.twig', {'button_label': 'Update'}) }}
+            {{ include('admin/admin_forum/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('admin_forum_index') }}">back to list</a>
+            <a class="btn btn-outline-light" href="{{ path('admin_forum_index') }}">back to list</a>
+        </div>
+    </div>
 
-    {{ include('admin/admin_forum/_delete_form.html.twig') }}
 {% endblock %}

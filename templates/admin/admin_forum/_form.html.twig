@@ -8,9 +8,7 @@
         {{ form_widget(form.game) }}
         {{ form_label(form.game) }}
     </div>
-    <div class="form-btn">
-        <button class="btn">{{ button_label|default('Save') }}</button>
-    </div>
+    <button class="btn btn-outline-light">{{ button_label|default('Save') }}</button>
     {{ form_end(form) }}
 </div>
 

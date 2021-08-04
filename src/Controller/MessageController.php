@@ -49,45 +49,10 @@ class MessageController extends AbstractController
             return $this->redirectToRoute('message_index', ['id' => $topic->getId()]);
         }
 
-        return $this->render('message/index.html.twig', [
+        return $this->render('forum/message.html.twig', [
             'messages' => $messageRepository->findAll(),
             'form' => $form->createView(),
             'topic' => $topic
         ]);
     }
-
-
-    /**
-     * @Route("/{id}/edit", name="message_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, Message $message): Response
-    {
-        $form = $this->createForm(MessageType::class, $message);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('message_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('message/edit.html.twig', [
-            'message' => $message,
-            'form' => $form,
-        ]);
-    }
-
-//    /**
-//     * @Route("/{id}", name="message_delete", methods={"POST"})
-//     */
-//    public function delete(Request $request, Message $message): Response
-//    {
-//        if ($this->isCsrfTokenValid('delete' . $message->getId(), $request->request->get('_token'))) {
-//            $entityManager = $this->getDoctrine()->getManager();
-//            $entityManager->remove($message);
-//            $entityManager->flush();
-//        }
-//
-//        return $this->redirectToRoute('message_index', [], Response::HTTP_SEE_OTHER);
-//    }
 }

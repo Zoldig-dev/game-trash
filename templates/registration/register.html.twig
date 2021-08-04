@@ -5,25 +5,41 @@
 
 {% block body %}
     <div class="container">
-        <div class="content-crea">
-            <h2 class="welcom animate__animated animate__zoomInDown">Register</h2>
+        <div class="content crea">
+            <h2 class="animate__animated animate__zoomInDown mb-3">Register</h2>
 
-            {{ form_start(registrationForm, {'attr': {'class': 'crealog'}}) }}
+            {{ form_start(registrationForm,
+                {'attr': {'class': 'crealog mb-3'}}
+            ) }}
 
-            {{ form_row(registrationForm.email, {'attr': {'placeholder': 'Email'}}) }}
-
-            {{ form_row(registrationForm.plainPassword,
-                {'attr': {'placeholder': 'Password'}},
-                { label: 'Password'})
-            }}
-
-            {{ form_row(registrationForm.agreeTerms) }}
+            <div class="form-floating mb-3">
+                {{ form_widget(registrationForm.email,
+                    {
+                        'attr': {
+                        'class': 'form-control rounded-pill'
+                    },
+                    },
+                ) }}
+                {{ form_label(registrationForm.email) }}
+            </div>
+            <div class="form-floating mb-3">
+                {{ form_widget(registrationForm.plainPassword,
+                    {'attr': {
+                        'class': 'form-control rounded-pill'
+                    }}
+                ) }}
+                {{ form_label(registrationForm.plainPassword) }}
+            </div>
+            <div class="crealog-terms mb-3">
+                {{ form_widget(registrationForm.agreeTerms) }}
+                {{ form_label(registrationForm.agreeTerms) }}
+            </div>
             <div class="crealog-footer">
-                <button type="submit" class="btn btn-lg btn-light crealog-footer-btn"><span>Register</span></button>
+                <button type="submit" class="btn btn-lg btn-light"><span>Register</span></button>
             </div>
             {{ form_end(registrationForm) }}
 
-            <a class="register-back" href="{{ path('app_login') }}">Retour</a>
+            <a class="btn btn-outline-light" href="{{ path('app_login') }}">Retour</a>
         </div>
     </div>
 

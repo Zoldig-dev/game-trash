@@ -1,15 +1,25 @@
-<footer class="mt-5">
+<footer>
     <div class="container">
-        <p class="text-center mt-3">Copyright 2021</p>
-        <hr>
-        <div class="row">
-            <div class="col-md-6">
-                {{ show_nb_games() | raw }}
-                {{ show_nb_posts() | raw }}
+        <div class="content-footer">
+            <div class="row">
+                <p class="text-center mt-3">Copyright 2021</p>
             </div>
-            <div class="col-md-6">
-                {{ show_society_contact() | raw }}
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box">
+                        <h3 class="text-center">Some Fact</h3>
+                        {{ show_nb_games() | raw }}
+                        {{ show_nb_posts() | raw }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box">
+                        {{ show_society_contact() | raw }}
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 </footer>

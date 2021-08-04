@@ -1,0 +1,31 @@
+{% extends 'layout/admin.html.twig' %}
+
+{% block title %}Hello {{ app.user.firstName }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="content d-flex flex-column">
+            <h2 class="animate__animated animate__zoomInDown mb-2">Create a Post</h2>
+            {{ form_start(form, {'attr' : {'class' : 'form'}}) }}
+            <div class="form-floating mb-3">
+                {{ form_widget(form.title) }}
+                {{ form_label(form.title) }}
+            </div>
+            <div class="form-floating mb-3">
+                {{ form_widget(form.content) }}
+                {{ form_label(form.content) }}
+            </div>
+            <div class="form-floating mb-3">
+                {{ form_widget(form.pathImg) }}
+                {{ form_label(form.pathImg) }}
+            </div>
+            <div class="form-floating mb-3">
+                {{ form_widget(form.postCategory) }}
+                {{ form_label(form.postCategory) }}
+            </div>
+            <button class="btn btn-outline-light">{{ button_label|default('Save') }}</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}{% endblock %}

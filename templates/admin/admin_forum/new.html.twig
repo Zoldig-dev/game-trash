@@ -3,9 +3,13 @@
 {% block title %}New Forum{% endblock %}
 
 {% block body %}
-    <h1>Create new Forum</h1>
+    <div class="container">
+        <div class="content d-flex flex-column my-5">
+            <h2 class="welcom animate__animated animate__jackInTheBox">Create new Forum</h2>
 
-    {{ include('admin/admin_forum/_form.html.twig') }}
+            {{ include('admin/admin_forum/_form.html.twig') }}
 
-    <a href="{{ path('admin_forum_index') }}">back to list</a>
+            <a class="btn btn-outline-light" href="{{ path('admin_forum_index') }}">back to list</a>
+        </div>
+    </div>
 {% endblock %}

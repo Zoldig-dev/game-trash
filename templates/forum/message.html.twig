@@ -1,0 +1,16 @@
+{% extends 'layout/user.html.twig' %}
+
+{% block title %}Message index{% endblock %}
+
+{% block body %}
+    {% if messages | length == 0 %}
+        <p>No Message</p>
+        {{ include('message/_messageForm.html.twig') }}
+    {% else %}
+        {% for message in messages %}
+            <p>{{ message.content }}</p>
+        {% endfor %}
+        {{ include('forum/_messageForm.html.twig') }}
+    {% endif %}
+
+{% endblock %}

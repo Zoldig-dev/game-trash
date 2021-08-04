@@ -19,17 +19,30 @@ class CreaPostFormType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'Title',
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'title',
+                ]
             ])
             ->add('content', TextareaType::class, [
-                'label' => 'Content',
+                'attr' => [
+                    'class' => 'form-control',
+                ]
             ])
-            ->add('pathImg', TextType::class)
+            ->add('pathImg', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'title',
+                ],
+
+            ])
             ->add('postCategory', EntityType::class, [
                 'class' => PostCategory::class,
-                'choice_label' => 'name'
-            ])
-            ->add('submit', SubmitType::class);
+                'choice_label' => 'name',
+                'attr' => [
+                    'class' => 'form-select'
+                ]
+            ]);
 
     }
 

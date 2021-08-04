@@ -1,0 +1,25 @@
+.topics {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+
+  .topic {
+    width: 80%;
+    padding: .5rem;
+    background: rgba(250, 250, 250, 0.6);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 0.0px );
+    -webkit-backdrop-filter: blur( 0.0px );
+    border-radius: 10px;
+
+    &-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

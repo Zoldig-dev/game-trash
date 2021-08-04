@@ -11,17 +11,17 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ path('home') }}">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ path('admin_contact') }}">Contact Gestion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ path('admin_forum_index') }}">Forum Gestion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ path('admin_game_index') }}">Game Gestion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ path('society_index') }}">Society</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Gestion
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ path('admin_contact') }}">Contact</a></li>
+                            <li><a class="dropdown-item" href="{{ path('admin_forum_index') }}">Forum</a></li>
+                            <li><a class="dropdown-item" href="{{ path('admin_game_index') }}">Game</a></li>
+                            <li><a class="dropdown-item" href="{{ path('society_index') }}">Society</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

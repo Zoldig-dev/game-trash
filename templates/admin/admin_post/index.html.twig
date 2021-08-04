@@ -1,20 +1,35 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout/admin.html.twig' %}
 
-{% block title %}Hello AdminPostController!{% endblock %}
+{% block title %}Hello Admin{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container">
+        <div class="content-catList">
+            <h2 class="animate__animated animate__zoomInDown mb-2">Category Post List</h2>
+            <div class="catlPost">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                <div class="catlPost-footer mt-2 mb-4">
+                    <a class="catlPost-footer-btn" href="{{ path('admin_create_catpost_list') }}">Add Post Category</a>
+                </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Labo/HB/Symfony/Game Trash/game-trash/src/Controller/AdminPostController.php'|file_link(0) }}">src/Controller/AdminPostController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Labo/HB/Symfony/Game Trash/game-trash/templates/admin_post/index.html.twig'|file_link(0) }}">templates/admin_post/index.html.twig</a></code></li>
-    </ul>
-</div>
+                {% for cat in catList %}
+                    <div class="catPost">
+                        <a class="catPost-item" href="#">
+                            {{ cat.name }}
+                        </a>
+                        <a class="catPost-item upd" href="{{ path('admin_update_catpost_list', {'id': cat.id }) }}">
+                            Update
+                        </a>
+                        <a class="catPost-item del" href="{{ path('admin_delete_catpost_list', {'id': cat.id }) }}">
+                            Delete
+                        </a>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </div>
 {% endblock %}
+{% block footer %}{% endblock %}

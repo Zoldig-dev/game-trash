@@ -50,16 +50,6 @@ class AdminForumController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_forum_show", methods={"GET"})
-     */
-    public function show(Forum $forum): Response
-    {
-        return $this->render('admin/admin_forum/show.html.twig', [
-            'forum' => $forum,
-        ]);
-    }
-
-    /**
      * @Route("/{id}/edit", name="admin_forum_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Forum $forum): Response

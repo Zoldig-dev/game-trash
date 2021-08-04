@@ -1,13 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout/admin.html.twig' %}
 
 {% block title %}Edit Society{% endblock %}
 
 {% block body %}
-    <h1>Edit Society</h1>
+    <div class="container">
+        <div class="content d-flex flex-column">
+            <h2 class="animate__animated animate__zoomInDown mb-2">Edit Society</h2>
 
-    {{ include('admin_society/_form.html.twig', {'button_label': 'Update'}) }}
+            {{ include('admin/admin_society/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('society_index') }}">back to list</a>
+            <a class='btn btn-outline-light' href='{{ path("society_index") }}'>back to list</a>
+        </div>
+    </div>
 
-    {{ include('admin_society/_delete_form.html.twig') }}
 {% endblock %}

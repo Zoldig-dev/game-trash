@@ -1,0 +1,36 @@
+{% extends 'layout/user.html.twig' %}
+
+{% block title %}Topic{% endblock %}
+{% block bodyClass %}main{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="content overlay my-5">
+            <h2 class="text-center animate__animated animate__zoomInDown my-3">Topic ~ {{ forum.title }}</h2>
+            <div class="btn-group">
+                <a class="btn btn-outline-light" href="{{ path('forum') }}">Back to Forum</a>
+                <a class="btn btn-outline-light" href="{{ path('new_topic', {'id': forum.id}) }}">New</a>
+            </div>
+
+            {% if topics | length == 0 %}
+                <p style="color:#ffffff;">No topic in this forum</p>
+            {% else %}
+                <div class="topics">
+                    {% for topic in topics %}
+                        <div class="topic">
+                            <div class="topic-title">
+                                <img src="{{ topic.pathLogo ? topic.pathLogo :  asset('build/images/snake-spiral.svg') }}"
+                                     width="80" height="80" alt="">
+                                <h3>{{ topic.title }}</h3>
+                                <p>Create On {{ topic.createdAt | date("d M Y \\a\\t h:i:s") }}</p>
+                                <a class="btn btn-outline-light"
+                                   href="{{ path('message_index', {'id': topic.id}) }}">Go</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,26 @@
+
+.crea {
+  height: 80vh;
+  flex-direction: column;
+
+  .crealog {
+    width: 80%;
+    &-terms {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1rem;
+    }
+    &-footer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+  }
+}
+
+
+
+

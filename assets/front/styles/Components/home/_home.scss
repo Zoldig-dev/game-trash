@@ -1,0 +1,23 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .noConnect {
+    width: 100%;
+    min-height: 75vh;
+    display: grid;
+    place-items: center;
+
+    .welcom {
+      font-size: 5rem;
+      color: white;
+    }
+  }
+
+}
+
+
+
+

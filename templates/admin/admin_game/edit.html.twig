@@ -3,11 +3,15 @@
 {% block title %}Edit Game{% endblock %}
 
 {% block body %}
-    <h1>Edit Game</h1>
+    <div class="container">
+        <div class="content d-flex flex-column my-5">
+            <h2 class="welcom animate__animated animate__jackInTheBox">Edit Game</h2>
 
-    {{ include('admin/admin_game/_form.html.twig', {'button_label': 'Update'}) }}
+            {{ include('admin/admin_game/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('admin_game_index') }}">back to list</a>
+            <a class="btn btn-outline-light" href="{{ path('admin_game_index') }}">back to list</a>
 
-    {{ include('admin/admin_game/_delete_form.html.twig') }}
+        </div>
+    </div>
+
 {% endblock %}

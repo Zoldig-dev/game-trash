@@ -1,0 +1,31 @@
+.log {
+  height: 80vh;
+  flex-direction: column;
+  .logform {
+    width: 80%;
+    h2 {
+      padding-bottom: 1rem;
+      color: white;
+      font-size: 2rem;
+    }
+
+    p {
+      color: white;
+      text-align: center;
+    }
+
+    &-submit {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: .2s ease-in-out;
+
+      &:hover {
+        transform: scale(.98) translateZ(0) perspective(1px);
+      }
+    }
+  }
+}
+
+

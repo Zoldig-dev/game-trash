@@ -1,0 +1,22 @@
+{% extends 'layout/user.html.twig' %}
+
+{% block title %}Forum{% endblock %}
+{% block bodyClass %}main{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="content overlay my-5">
+            <h2 class="text-center animate__animated animate__zoomInDown my-3">Forum</h2>
+
+            <div class="forum">
+                {% for row in forum %}
+                    <div class="forum-row">
+                        <h3>{{ row.title }}</h3>
+                        <a class="btn btn-outline-light" href="{{ path('topic', {'id': row.id}) }}">Go</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

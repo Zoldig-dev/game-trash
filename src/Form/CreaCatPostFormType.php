@@ -15,8 +15,11 @@ class CreaCatPostFormType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Name of category',
-            ])
-            ->add('submit', SubmitType::class);
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'title',
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
