@@ -10,15 +10,42 @@ body {
   background: #757F9A;
   background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);
   background: linear-gradient(to right, #D7DDE8, #757F9A);
-}
-.main{
-  background: #000000;
-  background: -webkit-linear-gradient(to right, #434343, #000000);
-  background: linear-gradient(to right, #434343, #000000);
 
   h2 {
     font-size: 3rem;
     color: white;
+  }
+  .content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.main{
+  background: #000000 url("https://img.wallpapersafari.com/desktop/1920/1080/45/86/QAUEYF.jpg") fixed;
+  mix-blend-mode: darken;
+
+  h2 {
+    font-size: 3rem;
+    color: white;
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .overlay {
+    background: rgba( 0, 0, 0, 0.60 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 0.0px );
+    -webkit-backdrop-filter: blur( 0.0px );
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 2rem;
   }
 
 }

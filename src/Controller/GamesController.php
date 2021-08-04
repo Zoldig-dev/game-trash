@@ -43,24 +43,30 @@ class GamesController extends AbstractController
         $form = $this->createForm(SearchFormType::class);
         $form->handleRequest($request);
 
+        $tags = [];
+
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
+
             if ($data['search']) {
+                dump('ici');
                 $qb
-                    ->where('game.title LIKE :game_title')
-                    ->setParameter('game_title', '%'.$data['search'].'%');
+                    ->andWhere('game.title LIKE :game_title')
+                    ->setParameter('game_title', '%' . $data['search'] . '%');
             }
             if ($data['support']) {
                 $qb
                     ->innerJoin('game.devices', 'd')
-                    ->where('d.id = :device_id')
+                    ->andWhere('d.id = :device_id')
                     ->setParameter('device_id', $data['support']->getId());
+                $tags[] = $data['support'];
             }
             if ($data['cat']) {
                 $qb
                     ->innerJoin('game.gameCategory', 'gc')
-                    ->where('gc.id = :cat_id')
+                    ->andWhere('gc.id = :cat_id')
                     ->setParameter('cat_id', $data['cat']->getId());
+                $tags[] = $data['cat'];
             }
         }
 
@@ -73,6 +79,7 @@ class GamesController extends AbstractController
         return $this->render('games/index.html.twig', [
             'form' => $form->createView(),
             'games' => $pagination,
+            'tags' => $tags,
         ]);
     }
 }

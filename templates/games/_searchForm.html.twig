@@ -1,14 +1,26 @@
-{{ form_start(form, {'attr' : {'class' : 'row mb-3 g-0'}}) }}
+{{ form_start(form, {'attr' : {'class' : 'row search toggleable  mb-3 g-0'}}) }}
 <div class="col-12 d-flex mb-3">
-    {{ form_widget(form.search) }}
+    {{ form_widget(form.search, {
+        'attr' : {
+            'placeholder' : '...'
+        }
+    }) }}
 </div>
 <div class="row d-flex justify-content-center align-items-center g-0">
     <div class="col-md-6 form-floating mb-3">
-        {{ form_widget(form.support) }}
+        {{ form_widget(form.support, {
+            'attr' : {
+                'class' : 'form-select',
+            }
+        }) }}
         {{ form_label(form.support) }}
     </div>
     <div class="col-md-6 form-floating mb-3">
-        {{ form_widget(form.cat) }}
+        {{ form_widget(form.cat, {
+            'attr' : {
+                'class' : 'form-select'
+            }
+        }) }}
         {{ form_label(form.cat) }}
     </div>
 </div>

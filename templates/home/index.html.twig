@@ -5,20 +5,20 @@
 
 {% block body %}
     <div class="container home">
+
         {% if not app.user %}
-            <div class="content-noConnect">
+            <div class="noConnect">
                 <h2 class="welcom animate__animated animate__jackInTheBox">Join Us If You Want Some Fun !!!</h2>
-                <img src="{{ asset('build/images/snake-spiral.svg') }}" alt="logo" width="100" height="100">
             </div>
         {% endif %}
+
         {% if app.user %}
-            <section class="content-swiper mb-5">
+            <section class="content overlay my-5">
                 {% include './swiper/swiper.html.twig' %}
+                {% include './home/posts.html.twig' %}
+                {% include './home/games.html.twig' %}
+                {% include './contact/index.html.twig' %}
             </section>
-            {% include './home/games.html.twig' %}
-            {% include './home/posts.html.twig' %}
-            <hr>
-            {% include './contact/index.html.twig' %}
         {% endif %}
     </div>
 

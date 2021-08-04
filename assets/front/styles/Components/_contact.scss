@@ -1,11 +1,7 @@
 @use '../media_query' as m;
 
-.content-contact {
-  width: 100%;
-  display: flex;
+.ticket {
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   .form-contact {
     width: 80%;

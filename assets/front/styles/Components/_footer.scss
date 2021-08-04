@@ -1,8 +1,30 @@
 footer {
-  background-color: #868585;
+  background: #000000;
   width: 100%;
   min-height: 5rem;
   color: #cbc8c8;
-  display: inline-block;
-  margin: auto;
+  .content-footer {
+    .box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba( 255, 255, 255, 0.25 );
+      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+      backdrop-filter: blur( 4px );
+      -webkit-backdrop-filter: blur( 4px );
+      border-radius: 10px;
+      border: 1px solid rgba( 255, 255, 255, 0.18 );
+      height: 100%;
+      &-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        text-decoration: none;
+        color: #F5F5F5;
+      }
+    }
+  }
 }

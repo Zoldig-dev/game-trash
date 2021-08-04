@@ -4,23 +4,43 @@
 {% block bodyClass %}main{% endblock %}
 
 {% block body %}
-    <section class="content-games mb-5" id="games">
-        <h2 class="text-center animate__animated animate__zoomInDown mb-5">Games</h2>
-        {% include './games/_searchForm.html.twig' %}
-        <div class="games">
-            {% for game in games %}
-                <div class="game">
-                    <div class="game-img" transition-style="in:circle:hesitate">
-                        <img src="{{ game.pathImg }}" alt="">
-                        <p class="game-img_price">{{ game.price }} €</p>
+    <section class="content-games mb-5">
+        <div class="container">
+            <div class="content overlay d-flex flex-column justify-content-center align-items-center my-5">
+                <h2 class="text-center animate__animated animate__zoomInDown mb-3">Games</h2>
+                <h3 class="text-center toggle-form">Filter</h3>
+                {% if tags is not null %}
+                    <div class="tags d-flex gap-2">
+                        {% for tag in tags %}
+                            <span style="
+                            text-transform: uppercase;
+                            padding: .5rem 1.5rem;
+                            color: white;
+                            clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+                            background: darkgreen;">{{ tag.name }}</span>
+                        {% endfor %}
+                        {% if tags | length > 0 %}
+                        <a class="btn btn-outline-light" href="{{ path('games') }}">Clear Tags</a>
+                        {% endif %}
                     </div>
-                    <div class="game-btn">
-                        <a href="{{ path('game_detail', {'id': game.id}) }}">Voir la fiche</a>
-                    </div>
-                </div>
+                {% endif %}
+                {% include './games/_searchForm.html.twig' %}
+                <div class="games">
+                    {% for game in games %}
+                        <div class="game">
+                            <div class="game-img" transition-style="in:circle:hesitate">
+                                <img src="{{ game.pathImg }}" alt="">
+                                <p class="game-img_price">{{ game.price }} €</p>
+                            </div>
+                            <div class="game-btn">
+                                <a href="{{ path('game_detail', {'id': game.id}) }}">Voir la fiche</a>
+                            </div>
+                        </div>
 
-            {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+            {{ knp_pagination_render(games) }}
         </div>
-        {{ knp_pagination_render(games) }}
     </section>
 {% endblock %}
