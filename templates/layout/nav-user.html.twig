@@ -55,7 +55,7 @@
                         {% endif %}
                         <li class="nav-item text-center">
                             <a class="nav-link active" aria-current="page"
-                               href="{{ app.user ? './logout' : './login' }}">{{ app.user ? 'Deconnexion' : 'Connexion' }}</a>
+                               href="{{ app.user ? path('app_logout') : path('app_login') }}">{{ app.user ? 'Deconnexion' : 'Connexion' }}</a>
                         </li>
                     </ul>
                 </div>

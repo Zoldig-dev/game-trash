@@ -18,14 +18,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class MessageController extends AbstractController
 {
     private EntityManagerInterface $em;
+    private TopicRepository $topicRepo;
 
     /**
      * @param EntityManagerInterface $em
+     * @param TopicRepository $topicRepo
      */
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, TopicRepository $topicRepo)
     {
         $this->em = $em;
+        $this->topicRepo = $topicRepo;
     }
+
 
     /**
      * @Route("/{id}", name="message_index")
@@ -33,7 +37,7 @@ class MessageController extends AbstractController
     public function index(MessageRepository $messageRepository, TopicRepository $topicRepo, Request $request, $id): Response
     {
         $user = $this->getUser();
-        $topic = $topicRepo->find($id);
+        $topic = $this->topicRepo->find($id);
         $message = new Message();
         $message->setCreatedAt(new \DateTime());
         $message->setTopic($topic);
@@ -50,7 +54,7 @@ class MessageController extends AbstractController
         }
 
         return $this->render('forum/message.html.twig', [
-            'messages' => $messageRepository->findAll(),
+            'messages' => $topic->getMessages(),
             'form' => $form->createView(),
             'topic' => $topic
         ]);
