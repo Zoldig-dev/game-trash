@@ -51,12 +51,11 @@ class FindOldPostCommand extends Command
         $io->title('Find old post');
         $date = $io->ask('Enter a date, format Y/m/d');
 
-        $statusAccepted = [0, 1];
         $post = $this->postRepo->createQueryBuilder('post')
             ->andWhere('post.createdAt <= :date')
             ->andWhere('post.status IN (:statusArray)')
             ->setParameter('date', $date)
-            ->setParameter('statusArray', $statusAccepted)
+            ->setParameter('statusArray', 1)
             ->getQuery()
             ->getResult();
 
