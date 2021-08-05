@@ -10,9 +10,7 @@
         {{ form_widget(form.pathLogo) }}
         {{ form_label(form.pathLogo) }}
     </div>
-    <div class="form-btn">
-        {{ form_widget(form.submit) }}
-    </div>
+    <button class="btn btn-outline-light">{{ button_label|default('Save') }}</button>
     {{ form_end(form) }}
 
 </div>

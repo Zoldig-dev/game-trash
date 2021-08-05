@@ -11,9 +11,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class HomeController extends AbstractController
 {
+    /**
+     * @var TranslatorInterface
+     */
+    private $tranlator;
     /**
      * @var GameRepository
      */
@@ -32,11 +37,13 @@ class HomeController extends AbstractController
      * @param GameRepository $gameRepo
      * @param PostRepository $postRepo
      * @param EntityManagerInterface $em
+     * @param TranslatorInterface $tranlator
      */
-    public function __construct(GameRepository $gameRepo,PostRepository $postRepo, EntityManagerInterface $em)
+    public function __construct(GameRepository $gameRepo,PostRepository $postRepo, EntityManagerInterface $em, TranslatorInterface $tranlator)
     {
         $this->gameRepo = $gameRepo;
         $this->postRepo = $postRepo;
+        $this->tranlator = $tranlator;
         $this->em = $em;
     }
 
@@ -46,6 +53,7 @@ class HomeController extends AbstractController
      */
     public function index(Request $request): Response
     {
+
         $posts = $this->postRepo->findAll();
         $games = $this->gameRepo->findAll();
 
@@ -69,6 +77,7 @@ class HomeController extends AbstractController
             "posts" => $posts,
             'games' => $games,
             'form' => $form->createView(),
+            'translator'=> $this->tranlator,
         ]);
     }
 

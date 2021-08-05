@@ -1,16 +1,28 @@
 {% extends 'layout/user.html.twig' %}
-
+{% dump %}
 {% block title %}Message index{% endblock %}
 
 {% block body %}
-    {% if messages | length == 0 %}
-        <p>No Message</p>
-        {{ include('message/_messageForm.html.twig') }}
-    {% else %}
-        {% for message in messages %}
-            <p>{{ message.content }}</p>
-        {% endfor %}
-        {{ include('forum/_messageForm.html.twig') }}
-    {% endif %}
-
+    <div class="container">
+        <div class="content message">
+            <h2>{{ topic.title }}</h2>
+            {% if messages | length == 0 %}
+                <p>No Message</p>
+                {{ include('forum/_messageForm.html.twig') }}
+            {% else %}
+                <div class="message-box my-2">
+                    {% for message in messages %}
+                        <div class="message-box_items">
+                            <div class="message-box_item user">
+                                <span class="user-time">{{ message.createdAt | date('d/m/Y \\a\\t h:m:s ') }}</span>
+                                <span class="user-name">{{ message.user.firstName }}</span>
+                            </div>
+                            <p class="message-box_item">{{ message.content }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+                {{ include('forum/_messageForm.html.twig') }}
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}

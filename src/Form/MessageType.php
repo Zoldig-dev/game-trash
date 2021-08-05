@@ -17,9 +17,11 @@ class MessageType extends AbstractType
             ->add('content', TextType::class, [
                 'attr' => [
                     'placeholder' => 'Message here',
-                ]
-            ])
-            ->add('submit', SubmitType::class)
+                    'class' => 'form-control',
+                    'autofocus' => true,
+                ],
+                'label' => 'Message',
+            ]);
         ;
     }
 

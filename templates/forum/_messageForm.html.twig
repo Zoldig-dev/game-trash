@@ -1,2 +1,7 @@
-{{ form_start(form) }}
+{{ form_start(form, {'attr' : {'class' : 'message-chat'}}) }}
+<div class="form-floating head">
+    {{ form_widget(form.content) }}
+    {{ form_label(form.content) }}
+</div>
+<button class="foot">{{ button_label|default('Enter') }}</button>
 {{ form_end(form) }}
