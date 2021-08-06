@@ -1,0 +1,21 @@
+{% extends 'layout/user.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <div class="container home">
+        <div class="content my-5">
+            <div class="user">
+                <div class="user-title">
+                    <img class="rounded-pill" src="{{ app.user.avatar }}" alt="" width="100" height="100">
+                    <h3>{{ app.user.firstName ~ ' - ' ~ app.user.roles[0]}}</h3>
+                </div>
+                <div class="user-info">
+                    <p>{{ app.user.firstName ~ ' - ' ~ app.user.lastName }}</p>
+                    <p>{{ app.user.email }}</p>
+                </div>
+            </div>
+            {{ include('home/_userForm.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

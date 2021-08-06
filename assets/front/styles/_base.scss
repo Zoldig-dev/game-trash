@@ -2,50 +2,59 @@ html {
   min-height: 100%;
   font-family: "Cooper Black", sans-serif;
 }
+
 body {
   height: 100%;
   overflow-x: hidden;
-}
-.base{
-  background: #757F9A;
-  background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);
-  background: linear-gradient(to right, #D7DDE8, #757F9A);
+  &::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(17, 55, 154, 0.32);
+    border-radius: 100px;
+  }
 
   h2 {
     font-size: 3rem;
-    color: white;
+    color: rgb(255, 255, 255);
   }
-  .content {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-.main{
-  background: #000000 url("https://img.wallpapersafari.com/desktop/1920/1080/45/86/QAUEYF.jpg") fixed;
-  mix-blend-mode: darken;
 
-  h2 {
-    font-size: 3rem;
-    color: white;
+  p {
+    color: rgb(255, 255, 255);
+
   }
 
   .content {
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .overlay {
-    background: rgba( 0, 0, 0, 0.60 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 0.0px );
-    -webkit-backdrop-filter: blur( 0.0px );
+    background: rgba(0, 0, 0, 0.60);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(0.0px);
+    -webkit-backdrop-filter: blur(0.0px);
     border-radius: 10px;
     flex-direction: column;
     gap: 2rem;
   }
+}
 
+.base {
+  background: #757F9A;
+  background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);
+  background: linear-gradient(to right, #D7DDE8, #757F9A);
+}
+
+.main {
+  background: #000000 url("https://img.wallpapersafari.com/desktop/1920/1080/45/86/QAUEYF.jpg") fixed;
+  mix-blend-mode: darken;
 }

@@ -5,7 +5,13 @@
             <div class="game">
                 <div class="game-img" transition-style="in:circle:hesitate">
                     <img src="{{ game.pathImg }}" alt="">
-                    <p class="game-img_price">{{ game.price }} €</p>
+                    <p class="game-img_price">
+                        {% if game.price == 0 %}
+                            F2P
+                            {% else %}
+                        {{ game.price }} €
+                        {% endif %}
+                    </p>
                 </div>
                 <div class="game-btn">
                     <a href="{{ path('game_detail', {'id': game.id}) }}">Voir la fiche</a>

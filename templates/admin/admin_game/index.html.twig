@@ -3,7 +3,7 @@
 {% block title %}Game index{% endblock %}
 
 {% block body %}
-    <div class="container">
+    <div class="container home">
         <div class="content d-flex flex-column">
             <h1>Game index</h1>
             <a class="btn btn-outline-light" href="{{ path('admin_game_new') }}">Create new</a>
@@ -13,11 +13,9 @@
                 <tr>
                     <th>Id</th>
                     <th>Title</th>
-                    <th>Description</th>
                     <th>LaunchAt</th>
                     <th>Price</th>
                     <th>NotGlobal</th>
-                    <th>PathImg</th>
                     <th>actions</th>
                 </tr>
                 </thead>
@@ -26,11 +24,9 @@
                     <tr>
                         <td>{{ game.id }}</td>
                         <td>{{ game.title }}</td>
-                        <td>{{ game.description }}</td>
                         <td>{{ game.launchAt ? game.launchAt|date('Y-m-d') : '' }}</td>
                         <td>{{ game.price }} €</td>
                         <td>{{ game.notGlobal }} / 10</td>
-                        <td>{{ game.pathImg }}</td>
                         <td>
                             <div class="btn-group">
                                 <a class="btn btn-outline-light" href="{{ path('admin_game_edit', {'id': game.id}) }}">edit</a>

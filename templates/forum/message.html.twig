@@ -1,9 +1,10 @@
 {% extends 'layout/user.html.twig' %}
 {% dump %}
 {% block title %}Message index{% endblock %}
+{% block bodyClass %}main{% endblock %}
 
 {% block body %}
-    <div class="container">
+    <div class="container home">
         <div class="content message">
             <h2>{{ topic.title }}</h2>
             {% if messages | length == 0 %}

@@ -1,0 +1,16 @@
+.user {
+  width: 100%;
+  color: white;
+  &-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
