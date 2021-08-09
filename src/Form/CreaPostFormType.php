@@ -6,6 +6,7 @@ use App\Entity\Post;
 use App\Entity\PostCategory;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -29,11 +30,12 @@ class CreaPostFormType extends AbstractType
                     'class' => 'form-control',
                 ]
             ])
-            ->add('pathImg', TextType::class, [
+            ->add('pathImg', FileType::class, [
                 'attr' => [
-                    'class' => 'form-control',
-                    'placeholder' => 'title',
+                    'class' => 'form-control form-control-lg',
                 ],
+                'mapped' => false,
+                'required' => false,
 
             ])
             ->add('postCategory', EntityType::class, [

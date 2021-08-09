@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -25,11 +26,12 @@ class UserFormType extends AbstractType
                     'placeholder' => 'lastName',
                 ]
             ])
-            ->add('avatar', TextType::class, [
+            ->add('avatar', FileType::class, [
                 'attr' => [
-                    'class' => 'form-control',
-                    'placeholder' => 'avatar',
-                ]
+                    'class' => 'form-control form-control-lg',
+                ],
+                'required' => false,
+                'mapped' => false,
             ])
             ->add('email', TextType::class, [
                 'attr' => [

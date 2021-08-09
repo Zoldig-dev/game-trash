@@ -33,8 +33,13 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->em->persist($user);
-            $this->em->flush();
+            $files = $form->get('avatar')->getData();
+            if ($files !== null) {
+                $originalFileName = pathinfo($files->getClientOriginalName(), PATHINFO_FILENAME);
+                dump($originalFileName);
+            }
+//            $this->em->persist($user);
+//            $this->em->flush();
 
             return $this->redirectToRoute('user');
         }

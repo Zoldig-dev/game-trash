@@ -1,9 +1,12 @@
 .navbar {
-  background-image: url("https://static.hitek.fr/img/actualite/2017/11/09/fb_f8968f62558ec28e77ebc8b7f8131419.jpg");
-  background-blend-mode: exclusion;
   color: white!important;
   min-height: 5rem;
   width: 100%;
+  .logo {
+    background-image: linear-gradient(90deg, red, blue);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
   &-user {
     display: flex;
     justify-content: space-between;

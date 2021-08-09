@@ -7,9 +7,12 @@ use App\Form\CreaPostFormType;
 use App\Repository\PostRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AdminPostController extends AbstractController
 {
@@ -51,7 +54,7 @@ class AdminPostController extends AbstractController
     /**
      * @Route("/admin/create-post", name="admin_post_create")
      */
-    public function createPost(Request $request): Response
+    public function createPost(Request $request, SluggerInterface $slugger): Response
     {
         $user = $this->getUser();
 
@@ -64,6 +67,21 @@ class AdminPostController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /**
+             * @var File $files
+             */
+            $files = $form->get('pathImg')->getData();
+            if ($files !== null) {
+                $originalFileName = pathinfo($files->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFileName = $slugger->slug($originalFileName);
+                $newFileName = $safeFileName . '-' . uniqid('', false) . "." . $files->guessExtension();
+            }
+            try {
+                $files->move($this->getParameter('upload_directory'), $newFileName);
+                $post->setPathImg($newFileName);
+            } catch (FileException $e) {
+                echo $e->getMessage();
+            }
             $this->em->persist($post);
             $this->em->flush();
             return $this->redirectToRoute('home');
@@ -77,13 +95,28 @@ class AdminPostController extends AbstractController
     /**
      * @Route("/admin/update-post/{id}", name="admin_post_update")
      */
-    public function updatePost(Request $request, $id): Response
+    public function updatePost(Request $request, SluggerInterface $slugger, $id): Response
     {
         $post = $this->postRepo->find($id);
         $form = $this->createForm(CreaPostFormType::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /**
+             * @var File $files
+             */
+            $files = $form->get('pathImg')->getData();
+            if ($files !== null) {
+                $originalFileName = pathinfo($files->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFileName = $slugger->slug($originalFileName);
+                $newFileName = $safeFileName . '-' . uniqid('', false) . "." . $files->guessExtension();
+            }
+            try {
+                $files->move($this->getParameter('upload_directory'), $newFileName);
+                $post->setPathImg($newFileName);
+            } catch (FileException $e) {
+                echo $e->getMessage();
+            }
             $this->em->persist($post);
             $this->em->flush();
             return $this->redirectToRoute('home');
@@ -91,6 +124,7 @@ class AdminPostController extends AbstractController
 
         return $this->render('admin/admin_post/creaPost.html.twig', [
             'form' => $form->createView(),
+            'post' => $post,
         ]);
     }
 
